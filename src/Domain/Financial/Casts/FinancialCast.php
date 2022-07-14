@@ -2,18 +2,24 @@
 
 namespace Andali\Anaf\Domain\Financial\Casts;
 
-use Illuminate\Support\Collection;
+use Andali\Anaf\Domain\Financial\FinancialDetailsData;
+use Illuminate\Support\Str;
 use Spatie\LaravelData\Casts\Cast;
 use Spatie\LaravelData\Support\DataProperty;
 
 class FinancialCast implements Cast
 {
-    public function cast(DataProperty $property, mixed $value, array $context): Collection
+    public function cast(DataProperty $property, mixed $value, array $context): FinancialDetailsData
     {
         $keyed = collect($value)->mapWithKeys(function ($item, $key) {
-            return [$item['val_den_indicator'] => $item['val_indicator']];
+            $removedSpecialChar = iconv('UTF-8', 'ASCII//TRANSLIT', $item['val_den_indicator']);
+            $newKey = Str::of($removedSpecialChar)
+                ->lower()
+                ->remove([':', ',', '-'])->snake()->toString();
+
+            return [$newKey => $item['val_indicator']];
         });
 
-        return $keyed;
+        return FinancialDetailsData::from($keyed);
     }
 }
