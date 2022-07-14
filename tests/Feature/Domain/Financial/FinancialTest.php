@@ -34,7 +34,6 @@ it('it will get financial data for vat numbers', function ($vatNumber) {
     '38744563',
 ]);
 
-
 it('it will thrown an error if bilant not found', function () {
     $result = Anaf::for('123456')->bilant(2021);
 })->throws(\Andali\Anaf\Domain\Info\Exceptions\VatNumberNotFound::class);
