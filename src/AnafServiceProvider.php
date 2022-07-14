@@ -2,7 +2,6 @@
 
 namespace Andali\Anaf;
 
-use Andali\Anaf\Commands\AnafCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
