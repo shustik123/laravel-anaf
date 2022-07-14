@@ -1,26 +1,23 @@
 <?php
 
-namespace VendorName\Skeleton\Tests;
+namespace Andali\Anaf\Tests;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
+use Andali\Anaf\AnafServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
-use VendorName\Skeleton\SkeletonServiceProvider;
+use Spatie\LaravelData\LaravelDataServiceProvider;
 
 class TestCase extends Orchestra
 {
     protected function setUp(): void
     {
         parent::setUp();
-
-        Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'VendorName\\Skeleton\\Database\\Factories\\'.class_basename($modelName).'Factory'
-        );
     }
 
     protected function getPackageProviders($app)
     {
         return [
-            SkeletonServiceProvider::class,
+            AnafServiceProvider::class,
+            LaravelDataServiceProvider::class,
         ];
     }
 
@@ -29,7 +26,7 @@ class TestCase extends Orchestra
         config()->set('database.default', 'testing');
 
         /*
-        $migration = include __DIR__.'/../database/migrations/create_skeleton_table.php.stub';
+        $migration = include __DIR__.'/../database/migrations/create_laravel-anaf_table.php.stub';
         $migration->up();
         */
     }
