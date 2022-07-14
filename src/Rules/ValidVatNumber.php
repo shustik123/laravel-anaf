@@ -29,9 +29,6 @@ class ValidVatNumber implements Rule
             return false;
         }
         $vatNumber = (int) $vatNumber;
-        if (strlen($vatNumber) > 10) {
-            return false;
-        }
 
         $control_number = substr($vatNumber, -1);
         $vatNumber = substr($vatNumber, 0, -1);

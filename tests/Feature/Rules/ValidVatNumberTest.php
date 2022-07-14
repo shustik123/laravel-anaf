@@ -19,6 +19,7 @@ it('will not pass for invalid vat numbers', function ($vatNumber) {
     expect($result)->toBeFalse();
 })->with([
     '123',
-    'invalidavat',
+    'ROOOOOOOOOOOOO',
+    'ROOOOOOOOO',
     'RO123456',
 ]);

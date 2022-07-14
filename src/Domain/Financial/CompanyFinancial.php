@@ -1,15 +1,14 @@
 <?php
 
-namespace Andali\Anaf\Domain\Info;
+namespace Andali\Anaf\Domain\Financial;
 
 use Andali\Anaf\Domain\Info\Exceptions\VatNumberNotFound;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
-trait VatInfo
+trait CompanyFinancial
 {
-    public function info(): AnafData|VatNumberNotFound
+    public function bilant(int $year): FinancialData|VatNumberNotFound
     {
         $vatNumber = Str::of($this->vatNumber)->remove('ro', false)
             ->trim()
@@ -17,17 +16,13 @@ trait VatInfo
 
         /* @var array $info */
         $info = Http::withHeaders(['Content-Type' => 'application/json'])
-            ->post($this->vatUrl, [
-                [
-                    'cui' => $vatNumber,
-                    'data' => Carbon::now()->format('Y-m-d'),
-                ],
+            ->get($this->bilantUrl, [
+                'cui' => $vatNumber,
+                'an' => $year,
             ])->json();
-
-        $companyInfo = AnafData::from($info['found'][0]);
-
-        if (filled($companyInfo->denumire)) {
-            return $companyInfo;
+        $data = FinancialData::from($info);
+        if (filled($data->deni)) {
+            return $data;
         } else {
             throw VatNumberNotFound::make();
         }

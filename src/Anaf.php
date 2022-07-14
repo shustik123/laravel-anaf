@@ -2,11 +2,13 @@
 
 namespace Andali\Anaf;
 
-use Andali\Anaf\Domain\Info\VatInfo;
+use Andali\Anaf\Domain\Financial\CompanyFinancial;
+use Andali\Anaf\Domain\Info\CompanyDetails;
 
 class Anaf
 {
-    use VatInfo;
+    use CompanyDetails;
+    use CompanyFinancial;
 
     public const VAT_URL = 'https://webservicesp.anaf.ro/PlatitorTvaRest/api/v6/ws/tva';
 

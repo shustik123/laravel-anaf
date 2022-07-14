@@ -34,3 +34,7 @@ it('it will get info for vat numbers with payable vat', function ($vatNumber) {
 })->with([
     'RO34735333',
 ]);
+
+it('it will thrown an error if cui not found', function () {
+    $result = Anaf::for('123456')->info();
+})->throws(\Andali\Anaf\Domain\Info\Exceptions\VatNumberNotFound::class);
