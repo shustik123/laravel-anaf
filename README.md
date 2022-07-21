@@ -1,4 +1,4 @@
-# Laravel ANF 
+# Laravel ANAF 
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/andalisolutions/laravel-anaf.svg?style=flat-square)](https://packagist.org/packages/andalisolutions/laravel-anaf)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/andalisolutions/laravel-anaf/run-tests?label=tests)](https://github.com/andalisolutions/laravel-anaf/actions?query=workflow%3Arun-tests+branch%3Amain)
@@ -14,8 +14,9 @@ You can install the package via composer:
 composer require andalisolutions/laravel-anaf
 ```
 
-## Usage 
+## Usage
 
+For company details you can use:
 ```php
 use Andali\Anaf\Anaf;
 
@@ -31,7 +32,7 @@ $companyInfo->nrRegCom;
 $companyInfo->scpTVA; // if the company is registered as a TVA payer in Romania;
 // and more
 ```
-
+For financial info ypu can use:
 ```php
 $financialInfo = Anaf::for($vatNumber)->bilant($year);
 /* AND YOU CAN ACCESS */
@@ -58,6 +59,22 @@ $financialInfo->i->creante;
 $financialInfo->i->stocuri;
 $financialInfo->i->active_circulante_total_din_care;
 $financialInfo->i->active_imobilizate_total;
+```
+## ValidVatNumber Validation Rule
+
+Vat number is validated with `RO` prefix or without it.
+```php
+use Andali\Anaf\Rules\ValidVatNumber;
+
+$validator = Validator::make(Input::all(), [
+    'first_name' => 'required',
+    'last_name' => 'required',
+    'company_vat' => ['required', new ValidVatNumber],
+]);
+
+if ($validator->passes()) {
+    // Input is correct...
+}
 ```
 
 ## Testing
