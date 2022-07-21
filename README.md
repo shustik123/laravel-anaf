@@ -17,6 +17,9 @@ composer require andalisolutions/laravel-anaf
 ## Usage 
 
 ```php
+use Andali\Anaf\Anaf;
+
+
 $companyInfo = Anaf::for($vatNumber)->info();
 /* AND YOU CAN ACCESS */
 $companyInfo->denumire;
@@ -69,7 +72,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Contributing
 
-Please see [CONTRIBUTING](https://github.com/ciungulete/.github/blob/main/CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](https://github.com/andalisolutions/.github/blob/main/CONTRIBUTING.md) for details.
 
 ## Security Vulnerabilities
 
