@@ -1,22 +1,10 @@
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/support-ukraine.svg?t=1" />](https://supportukrainenow.org)
-
-# This is my package laravel-anaf
+# Laravel ANF 
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/andalisolutions/laravel-anaf.svg?style=flat-square)](https://packagist.org/packages/andalisolutions/laravel-anaf)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/andalisolutions/laravel-anaf/run-tests?label=tests)](https://github.com/andalisolutions/laravel-anaf/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/andalisolutions/laravel-anaf/Check%20&%20fix%20styling?label=code%20style)](https://github.com/andalisolutions/laravel-anaf/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/andalisolutions/laravel-anaf.svg?style=flat-square)](https://packagist.org/packages/andalisolutions/laravel-anaf)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-anaf.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-anaf)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
 
 ## Installation
 
@@ -26,37 +14,47 @@ You can install the package via composer:
 composer require andalisolutions/laravel-anaf
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="laravel-anaf-migrations"
-php artisan migrate
-```
-
-You can publish the config file with:
-
-```bash
-php artisan vendor:publish --tag="laravel-anaf-config"
-```
-
-This is the contents of the published config file:
+## Usage 
 
 ```php
-return [
-];
+$companyInfo = Anaf::for($vatNumber)->info();
+/* AND YOU CAN ACCESS */
+$companyInfo->denumire;
+$companyInfo->adresa->judet;
+$companyInfo->adresa->localitate;
+$companyInfo->adresa->strada;
+$companyInfo->adresa->stradaNumar;
+$companyInfo->nrRegCom;
+$companyInfo->scpTVA; // if the company is registered as a TVA payer in Romania;
+// and more
 ```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="laravel-anaf-views"
-```
-
-## Usage
 
 ```php
-$anaf = new Andali\Anaf();
-echo $anaf->echoPhrase('Hello, Andali!');
+$financialInfo = Anaf::for($vatNumber)->bilant($year);
+/* AND YOU CAN ACCESS */
+$financialInfo->deni; // company name
+$financialInfo->caen;
+/* AND FINANCIAL INFO FOR $year */
+$financialInfo->i->numar_mediu_de_salariati;
+$financialInfo->i->pierdere_neta;
+$financialInfo->i->profit_net;
+$financialInfo->i->pierdere_bruta;
+$financialInfo->i->profit_brut;
+$financialInfo->i->cheltuieli_totale;
+$financialInfo->i->venituri_totale;
+$financialInfo->i->cifra_de_afaceri_neta;
+$financialInfo->i->patrimoniul_regiei;
+$financialInfo->i->capital_subscris_varsat;
+$financialInfo->i->capitaluri_total_din_care;
+$financialInfo->i->provizioane;
+$financialInfo->i->venituri_in_avans;
+$financialInfo->i->datorii;
+$financialInfo->i->cheltuieli_in_avans;
+$financialInfo->i->casa_si_conturi_la_banci;
+$financialInfo->i->creante;
+$financialInfo->i->stocuri;
+$financialInfo->i->active_circulante_total_din_care;
+$financialInfo->i->active_imobilizate_total;
 ```
 
 ## Testing
