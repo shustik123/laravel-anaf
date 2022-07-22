@@ -1,9 +1,9 @@
 # Laravel ANAF 
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/andalisolutions/laravel-anaf.svg?style=flat-square)](https://packagist.org/packages/andalisolutions/laravel-anaf)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/andalisolutions/laravel-anaf.svg)](https://packagist.org/packages/andalisolutions/laravel-anaf)
 ![Tests](https://github.com/andalisolutions/laravel-anaf/workflows/Tests/badge.svg)
 [![PHPStan](https://github.com/andalisolutions/laravel-anaf/actions/workflows/phpstan.yml/badge.svg)](https://github.com/andalisolutions/laravel-anaf/actions/workflows/phpstan.yml)
-[![Total Downloads](https://img.shields.io/packagist/dt/andalisolutions/laravel-anaf.svg?style=flat-square)](https://packagist.org/packages/andalisolutions/laravel-anaf)
+[![Total Downloads](https://img.shields.io/packagist/dt/andalisolutions/laravel-anaf.svg)](https://packagist.org/packages/andalisolutions/laravel-anaf)
 
 
 ## Installation
@@ -11,7 +11,7 @@
 You can install the package via composer:
 
 ```bash
-composer require andalisolutions/laravel-anaf
+composer require andalisolutions/laravel-anaf 
 ```
 
 ## Usage
