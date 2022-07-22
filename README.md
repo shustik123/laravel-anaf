@@ -1,8 +1,8 @@
 # Laravel ANAF 
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/andalisolutions/laravel-anaf.svg?style=flat-square)](https://packagist.org/packages/andalisolutions/laravel-anaf)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/andalisolutions/laravel-anaf/run-tests?label=tests)](https://github.com/andalisolutions/laravel-anaf/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/andalisolutions/laravel-anaf/Check%20&%20fix%20styling?label=code%20style)](https://github.com/andalisolutions/laravel-anaf/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
+![Tests](https://github.com/andalisolutions/laravel-anaf/workflows/Tests/badge.svg)
+[![PHPStan](https://github.com/andalisolutions/laravel-anaf/actions/workflows/phpstan.yml/badge.svg)](https://github.com/andalisolutions/laravel-anaf/actions/workflows/phpstan.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/andalisolutions/laravel-anaf.svg?style=flat-square)](https://packagist.org/packages/andalisolutions/laravel-anaf)
 
 
