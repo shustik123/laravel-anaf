@@ -5,7 +5,6 @@
 [![PHPStan](https://github.com/andalisolutions/laravel-anaf/actions/workflows/phpstan.yml/badge.svg)](https://github.com/andalisolutions/laravel-anaf/actions/workflows/phpstan.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/andalisolutions/laravel-anaf.svg)](https://packagist.org/packages/andalisolutions/laravel-anaf)
 
-
 ## Installation
 
 You can install the package via composer:
@@ -20,7 +19,6 @@ For company details you can use:
 ```php
 use Andali\Anaf\Anaf;
 
-
 $companyInfo = Anaf::for($vatNumber)->info();
 /* AND YOU CAN ACCESS */
 $companyInfo->denumire;
@@ -32,7 +30,7 @@ $companyInfo->nrRegCom;
 $companyInfo->scpTVA; // if the company is registered as a TVA payer in Romania;
 // and more
 ```
-For financial info ypu can use:
+For financial info you can use:
 ```php
 $financialInfo = Anaf::for($vatNumber)->bilant($year);
 /* AND YOU CAN ACCESS */
